@@ -4,7 +4,7 @@ class QuizQuestion {
   final String quizQuestion;
   final List<String> quizAnswer;
 
-  List<String> shuffledAnswers() {
+  List<String> get shuffledAnswers {
     final shuffledList = List.of(quizAnswer);
     shuffledList.shuffle();
 
