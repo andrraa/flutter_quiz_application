@@ -29,9 +29,15 @@ class _Quiz extends State<Quiz> {
     if (selectedAnswers.length == questions.length) {
       setState(() {
         activeScreen = 'result-screen';
-        selectedAnswers.clear();
       });
     }
+  }
+
+  void restartQuiz() {
+    setState(() {
+      selectedAnswers.clear();
+      activeScreen = 'questions-screens';
+    });
   }
 
   @override
@@ -47,6 +53,7 @@ class _Quiz extends State<Quiz> {
     if (activeScreen == 'result-screen') {
       screenWidget = ResultScreen(
         chosenAnswer: selectedAnswers,
+        onRestart: restartQuiz,
       );
     }
 
